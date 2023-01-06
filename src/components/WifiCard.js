@@ -10,12 +10,10 @@ import {
 } from 'evergreen-ui';
 import QRCode from 'qrcode.react';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import logo from '../../src/images/wifi.png';
 import './style.css';
 
 export const WifiCard = (props) => {
-  const { t } = useTranslation();
   const [qrvalue, setQrvalue] = useState('');
 
   const escape = (v) => {
@@ -37,10 +35,7 @@ export const WifiCard = (props) => {
     const password = !props.settings.encryptionMode
       ? ''
       : escape(props.settings.password);
-    const qrval =
-      props.settings.encryptionMode === 'WPA2-EAP'
-        ? `WIFI:T:${props.settings.encryptionMode};S:${ssid};P:${password};H:${props.settings.hiddenSSID};E:${props.settings.eapMethod};I:${props.settings.eapIdentity};;`
-        : `WIFI:T:${props.settings.encryptionMode};S:${ssid};P:${password};H:${props.settings.hiddenSSID};;`;
+    const qrval = `WIFI:T:${props.settings.encryptionMode};S:${ssid};P:${password};H:${props.settings.hiddenSSID};;`;
     setQrvalue(qrval);
   }, [props.settings]);
 
@@ -79,7 +74,7 @@ export const WifiCard = (props) => {
             paddingLeft={10}
             textAlign={props.settings.portrait ? 'center' : 'unset'}
           >
-            {'连接 WiFi'}
+            {'扫码连接 WiFi'}
           </Heading>
         </Pane>
 
@@ -98,7 +93,7 @@ export const WifiCard = (props) => {
             <TextareaField
               id="ssid"
               type="text"
-              marginBottom={5}
+              marginTop={10}
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="none"
@@ -164,7 +159,7 @@ export const WifiCard = (props) => {
                   : 'auto'
               }
               label={passwordFieldLabel()}
-              placeholder={'密码'}
+              placeholder={'WiFi 密码'}
               value={props.settings.password}
               onChange={(e) => props.onPasswordChange(e.target.value)}
               isInvalid={!!props.passwordError}

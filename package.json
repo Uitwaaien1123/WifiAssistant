@@ -1,6 +1,7 @@
 {
   "name": "wifi-card",
   "version": "0.1.0",
+  "homepage": "https://Uitwaaien1123.github.io/WifiAssistant",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -16,6 +17,7 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.2",
     "prettier": "2.8.0"
   },
@@ -24,7 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,7 +46,7 @@
     ]
   },
   "main": "index.js",
-  "repository": "git@github.com:bndw/wifi-card.git",
-  "author": "bndw <ben@bdw.to>",
+  "repository": "https://github.com/Uitwaaien1123/WifiAssistant.git",
+  "author": "jyz",
   "license": "MIT"
 }

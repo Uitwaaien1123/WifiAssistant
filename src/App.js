@@ -1,4 +1,4 @@
-import { Button, Heading, Link, Pane, Paragraph } from 'evergreen-ui';
+import { Button, Heading, Pane, Paragraph } from 'evergreen-ui';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../src/images/wifi.png';
@@ -39,11 +39,6 @@ function App() {
     languageID = languageID || i18n.language;
     const rtl = Translations.filter((t) => t.id === languageID)[0]?.rtl;
     return rtl ? 'rtl' : 'ltr';
-  };
-
-  const onChangeLanguage = (language) => {
-    html.style.direction = htmlDirection(language);
-    i18n.changeLanguage(language);
   };
 
   const onPrint = () => {
@@ -126,7 +121,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Ensure the page direction is set properly on first load
     if (htmlDirection() === 'rtl') {
       html.style.direction = 'rtl';
     }
@@ -137,15 +131,15 @@ function App() {
       <Pane display="flex">
         <img alt="icon" src={logo} width="32" height="32" />
         <Heading size={900} paddingRight={16} paddingLeft={16}>
-          {'WiFi 连接二维码'}
+          {'WiFi连接码'}
         </Heading>
       </Pane>
 
       <Pane>
-        <Paragraph marginTop={12}>{'打印一张带有 WiFi 详细信息的登录卡片，把它贴到冰箱上、放到你的钱包里...'}</Paragraph>
+        <Paragraph marginTop={22}>{'输入您的 Wifi 名称和密码，生成相应 WiFi 连接二维码。无需手动输入，扫码直接连接！'}</Paragraph>
 
         <Paragraph marginTop={12}>
-          {'您的 WiFi 信息永远不会发送到服务端。本网站不使用追踪、分析或指纹识别。'}
+          {'您的 WiFi 信息永远只在本地储存，不会发送到服务端，请放心使用。'}
         </Paragraph>
       </Pane>
 
@@ -163,7 +157,6 @@ function App() {
         settings={settings}
         firstLoad={firstLoad}
         onFirstLoad={onFirstLoad}
-        // onLanguageChange={onChangeLanguage}
         onEncryptionModeChange={onEncryptionModeChange}
         onEapMethodChange={onEapMethodChange}
         onOrientationChange={onOrientationChange}
@@ -178,7 +171,7 @@ function App() {
         marginRight={16}
         onClick={onPrint}
       >
-        {t('button.print')}
+        {'打印连接码'}
       </Button>
     </Pane>
   );
