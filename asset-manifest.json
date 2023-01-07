@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/WifiAssistant/static/css/main.00f2b93b.css",
-    "main.js": "/WifiAssistant/static/js/main.331197b0.js",
+    "main.js": "/WifiAssistant/static/js/main.9f26e628.js",
     "static/media/SourceSerif4-Semibold.otf": "/WifiAssistant/static/media/SourceSerif4-Semibold.79657b2690b17c6c2c38.otf",
     "static/media/wifi.png": "/WifiAssistant/static/media/wifi.98ef7bb3bdae68a308b3.png",
     "index.html": "/WifiAssistant/index.html",
     "main.00f2b93b.css.map": "/WifiAssistant/static/css/main.00f2b93b.css.map",
-    "main.331197b0.js.map": "/WifiAssistant/static/js/main.331197b0.js.map"
+    "main.9f26e628.js.map": "/WifiAssistant/static/js/main.9f26e628.js.map"
   },
   "entrypoints": [
     "static/css/main.00f2b93b.css",
-    "static/js/main.331197b0.js"
+    "static/js/main.9f26e628.js"
   ]
 }
